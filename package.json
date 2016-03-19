@@ -9,7 +9,7 @@
   "keywords": [
     "CV"
   ],
-  "author": "E Li",
+  "author": "eliasparis",
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.5.0",
@@ -18,5 +18,9 @@
     "gulp-connect": "^3.1.1",
     "gulp-inject": "^4.0.0",
     "gulp-watch": "^4.3.5"
+  },
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/npm/npm.git"
   }
 }
