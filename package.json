@@ -12,15 +12,16 @@
   "author": "eliasparis",
   "license": "MIT",
   "devDependencies": {
-    "angular": "^1.5.0",
+    "bower": "^1.7.7",
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-connect": "^3.1.1",
     "gulp-inject": "^4.0.0",
     "gulp-watch": "^4.3.5"
   },
-  "repository" : { 
-    "type" : "git",
-    "url" : "https://github.com/npm/npm.git"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eliasparis/CVbackups.git"
+  },
+  "dependencies": {}
 }

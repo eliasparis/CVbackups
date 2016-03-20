@@ -1,0 +1,27 @@
+{
+  "name": "CVBackups",
+  "description": "App for keeping track of my Cv backups",
+  "main": "dev/index.html",
+  "authors": [
+    "eliasparis"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cv"
+  ],
+  "homepage": "https://github.com/eliasparis/CVbackups",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2"
+  }
+}
