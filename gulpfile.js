@@ -14,7 +14,7 @@
 */
 var gulp = require('gulp'),
     inject = require('gulp-inject'),
-    connect = require('gulp-connect'),
+    webserver = require('gulp-webserver'),
     angularFilesort = require('gulp-angular-filesort'),
     watch = require('gulp-watch');
 
@@ -24,45 +24,34 @@ var gulp = require('gulp'),
 var paths = {
     scripts_app : 'dev/app/**/**/**/*.js',
     styles_app : 'dev/app/**/**/**/*.css',
-    libs : 'dev/assets/libs/*.js',
+    libs : 'bower_components/**/*.min.js',
     styles : 'dev/assets/css/*.css',
     index : 'dev/index.html',
-    root: 'dev',
+    dev_root : 'dev/',
+    root: '',
 };
 
 /*
 * 
 * Server and development enviroment tasks
 * Injects styles and scripts on index [inject]
-* Watches for changes [watch] and if so, it [reloads]
 * Starts a server on 8888 
 */
-gulp.task('serve', ['inject', 'watch'] , function() {
-  connect.server({
-    port: 9999,
-    root: paths.root,
-    livereload: true
-  });
-})
+gulp.task('serve', ['inject'] , function() {
+    gulp.src(paths.root)
+        .pipe(webserver({
+          livereload: {enable: true,},
+          open: true
+        }));
+});
 
 gulp.task('inject', function() {
     var target = gulp.src(paths.index); 
-    var sources = gulp.src([paths.libs , paths.scripts_app , paths.styles , paths.styles_app])
-                      .pipe(angularFilesort());
+    var sources = gulp.src([paths.libs , paths.scripts_app , paths.styles , paths.styles_app]);
  
     return target.pipe(inject(sources, {relative: true}))
-                 .pipe(gulp.dest(paths.root));
+                 .pipe(gulp.dest(paths.dev_root));
 });
-
-gulp.task('watch', function() {
-    gulp.watch([paths.libs , paths.scripts_app , paths.styles , paths.styles_app], ['reload'])
-});
-
-gulp.task('reload', function(){
-    gulp.src(paths.index)
-        .pipe(connect.reload());
-});
-
 
 /*
 *Default task
