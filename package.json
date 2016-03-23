@@ -17,7 +17,8 @@
     "gulp-angular-filesort": "^1.1.1",
     "gulp-inject": "^4.0.0",
     "gulp-watch": "^4.3.5",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "stream-series": "^0.1.1"
   },
   "repository": {
     "type": "git",
