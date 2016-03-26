@@ -56,7 +56,7 @@ angular
     ])
 	.factory('cvfactory', ['cvs', function(cvs) {
 		this.getCV = function(title){
-
+			
 		};
 	}]);
 		

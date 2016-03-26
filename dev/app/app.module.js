@@ -3,4 +3,5 @@ angular
 			   	   'app.routes',
 			   	   'app.list',
 			   	   'app.cvview',
+			   	   'app.cvadd',
 			   	   'cvconstant']);

@@ -1,5 +1,5 @@
 angular
-	.module('app.routes',['ui.router', 'cvconstant'])
+	.module('app.routes',['ui.router'])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	   	
 	   	$stateProvider.state('app', {
@@ -17,5 +17,12 @@ angular
 	        }
 	    });
    		
-   		//$urlRouterProvider.otherwise('/');
+   		$stateProvider.state('cvadd', {
+	        url: '/cvadd',
+	        controller: 'CvaddCtrl as cvaddCtrl',
+	        templateUrl: 'app/components/cvadd/cvadd.tpl.html',
+	    });
+   		
+   		$urlRouterProvider.otherwise('');
+
    	}]);
