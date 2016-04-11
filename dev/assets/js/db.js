@@ -1,0 +1,1 @@
+var myDataRef = new Firebase('vivid-fire-1617.firebaseIO.com');
