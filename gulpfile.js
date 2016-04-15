@@ -26,7 +26,7 @@ var paths = {
     scripts_app : 'dev/app/**/**/**/*.js',
     styles_app : 'dev/app/**/**/**/*.css',
     libs : 'bower_components/**/*.min.js',
-    dev_libs : 'dev/assets/libs/*.min.js',
+    dev_libs : 'dev/assets/libs/*.js',
     styles : 'dev/assets/css/*.css',
     index : 'dev/index.html',
     dev_root : 'dev/',

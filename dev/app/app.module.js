@@ -4,4 +4,7 @@ angular
 			   	   'app.list',
 			   	   'app.cvview',
 			   	   'app.cvadd',
-			   	   'cvconstant']);
+			   	   'cvconstant',
+			   	   'firebase',
+			   	   'dbconstant',
+			   	   'dbservice']);
