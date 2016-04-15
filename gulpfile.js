@@ -52,6 +52,8 @@ gulp.task('libs_manage', function(){
             'bower_components/angular-messages/*.min.js',
             'bower_components/angular-ui-router/release/*.min.js',
             'bower_components/angular/*.min.js',
+            'bower_components/angularfire/dist/*.min.js',
+            'bower_components/firebase/*.js'
             ]).pipe(gulp.dest('dev/assets/libs'));
 });
 

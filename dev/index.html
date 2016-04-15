@@ -6,7 +6,18 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="assets/css/ngcloack.css">
   <!-- endinject -->
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <!-- inject:js -->
+  <script src="assets/libs/angularfire.min.js"></script>
+  <script src="assets/libs/angular.min.js"></script>
+  <script src="assets/libs/angular-ui-router.min.js"></script>
+  <script src="assets/libs/angular-messages.min.js"></script>
+  <script src="app/app.module.js"></script>
+  <script src="app/app.routes.js"></script>
+  <script src="app/components/cvadd/cvadd.js"></script>
+  <script src="app/components/listing/listing.js"></script>
+  <script src="app/components/cvview/cvview.js"></script>
+  <script src="app/shared/cvfactory/cvfactory.js"></script>
+  <!-- endinject -->
 </head>
 <body ng-app="app" ng-cloak>
   Hello {{4 + 2}}
@@ -14,16 +25,5 @@
   <div ui-view>
     
   </div>
-  <!-- inject:js -->
-  <script src="assets/libs/angular.min.js"></script>
-  <script src="assets/libs/angular-ui-router.min.js"></script>
-  <script src="assets/libs/angular-messages.min.js"></script>
-  <script src="app/app.module.js"></script>
-  <script src="app/app.routes.js"></script>
-  <script src="app/components/cvadd/cvadd.js"></script>
-  <script src="app/components/cvview/cvview.js"></script>
-  <script src="app/components/listing/listing.js"></script>
-  <script src="app/shared/cvfactory/cvfactory.js"></script>
-  <!-- endinject -->
 </body>
 </html>

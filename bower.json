@@ -1,19 +1,15 @@
 {
-  "name": "CVBackups",
-  "description": "App for keeping track of my Cv backups",
+  "name": "cvbackups",
+  "description": "App for keeping track of my CV backups",
   "main": "dev/index.html",
   "authors": [
     "eliasparis"
   ],
   "license": "MIT",
   "keywords": [
-    "cv"
+    "CV"
   ],
   "homepage": "https://github.com/eliasparis/CVbackups",
-  "moduleType": [
-    "node"
-  ],
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -22,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.2"
+    "angularfire": "^1.2.0",
+    "firebase": "^2.4.2",
+    "angular": "^1.5.4"
   }
 }
