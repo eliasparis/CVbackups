@@ -1,6 +1,6 @@
 angular
-	.module('app.list',['ui.router', 'cvconstant', 'dbservice', 'firebase'])
-	.controller('ListCtrl',['$scope', '$state', 'cvs', 'dbservice', '$firebaseObject', function($scope, $state, cvs, dbservice, $firebaseObject) {
+	.module('app.list',['ui.router', 'cvconstant', 'dbservice'])
+	.controller('ListCtrl',['$scope', '$state', 'cvs', 'dbservice', function($scope, $state, cvs, dbservice) {
 
 	  	this.cvs = cvs;
 		this.cvview = function(cv){
@@ -8,5 +8,8 @@ angular
 				cvtitle: cv,
 			});
 		};
+
+		console.log(dbservice.list);
+		//this.cvlist = dbservice;
 
    }]);
