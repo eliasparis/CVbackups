@@ -1,7 +1,8 @@
 angular
-	.module('app.cvview',['ui.router', 'cvconstant'])
-    .controller('CvviewCtrl', ['$stateParams', '$scope', function($stateParams, $scope) {
-   		
-   		$scope.cvtitle = $stateParams.cvtitle;
-    
+	.module('app.cvview',['ui.router'])
+    .controller('CvviewCtrl', ['$stateParams', '$scope', 'cvdata', function($stateParams, $scope, cvdata) {
+
+		  $scope.date = cvdata.date;
+   		$scope.cvtitle = $stateParams.cvtitle;   		
+   		    
     }]);

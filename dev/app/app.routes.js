@@ -1,5 +1,5 @@
 angular
-	.module('app.routes',['ui.router'])
+	.module('app.routes',['ui.router', 'dbservice'])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	   	
 	   	$stateProvider.state('app', {
@@ -14,6 +14,11 @@ angular
 	        templateUrl: 'app/components/cvview/cvview.tpl.html',
 	        params: {
 	        	cvtitle: null,
+	        },
+	        resolve: {
+	        	cvdata: ['cvdata', '$stateParams', function(cvdata, $stateParams){
+	        		return cvdata.getCv($stateParams.cvtitle);
+	        	}],
 	        }
 	    });
    		
