@@ -1,15 +1,13 @@
 angular
-	.module('app.list',['ui.router', 'cvconstant', 'dbservice'])
-	.controller('ListCtrl',['$scope', '$state', 'cvs', 'dbservice', function($scope, $state, cvs, dbservice) {
+	.module('app.list',['ui.router', 'cvconstant', 'listservice'])
+	.controller('ListCtrl',['$scope', '$state', 'cvs', 'listservice', function($scope, $state, cvs, listservice) {
 
-	  	this.cvs = cvs;
+	  	this.cvs = listservice.cvlisting;
 		this.cvview = function(cv){
 			$state.go('cvview', {
 				cvtitle: cv,
 			});
 		};
-
-		console.log(dbservice.list);
-		//this.cvlist = dbservice;
-
+		
    }]);
+

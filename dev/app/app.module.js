@@ -7,4 +7,4 @@ angular
 			   	   'cvconstant',
 			   	   'firebase',
 			   	   'dbconstant',
-			   	   'dbservice']);
+			   	   'listservice']);
