@@ -1,6 +1,6 @@
 <h2>{{hello}}</h2>
 
-<form novalidate name="newcvCtrl.form" ng-submit="newcvCtrl.form.$valid && newcvCtrl.onSubmit()">
+<form novalidate name="newcvCtrl.form" ng-submit="newcvCtrl.form.$valid && newcvCtrl.saveCV(newcvCtrl.cv)">
 	Title : <input type="text" name="cv.title" ng-model="newcvCtrl.cv.title" required><br>
 	Personal data / name : <input type="text" name="cv.data.name" ng-model="newcvCtrl.cv.data.name" required><br>
 	Personal data / surname : <input type="text" name="cv.data.surname" ng-model="newcvCtrl.cv.data.surname"><br>
@@ -22,7 +22,7 @@
 
 
 
-	<button type="submit" ng-disabled="newcvCtrl.form.$invalid" ng-click="newcvCtrl.saveCV(newcvCtrl.cv)">SAVE</button>
+	<button type="submit" ng-disabled="newcvCtrl.form.$invalid">SAVE</button>
 </form>
 
 

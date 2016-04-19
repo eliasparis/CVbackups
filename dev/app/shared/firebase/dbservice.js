@@ -43,12 +43,16 @@ angular
 		
 		var dburl = dburl.url;
 		var cvsFirebase = $firebaseArray(new Firebase(dburl + "/cvs"));
-		var rawDate = new Date;
-
+		
 		this.addCv = function(cvDataModel){
-			var date = rawDate.toLocaleDateString();
-			cvDataModel.date = date;
 			
+			var rawDate = new Date;
+			var date = rawDate.toLocaleDateString();
+			var title = cvDataModel.title;
+			var timestamp = rawDate.toString();
+
+			cvsFirebase.$add({ title, cvDataModel, date, timestamp });
+
 			console.log("addCv service", cvDataModel);
 		};
 
