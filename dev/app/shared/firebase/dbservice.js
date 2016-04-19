@@ -38,4 +38,18 @@ angular
 			return $firebaseObject(cvFirebase).$loaded();
 		}
 
+	}])
+	.service('newcv',['dburl', '$firebaseArray', function(dburl, $firebaseArray){
+		
+		var dburl = dburl.url;
+		var cvsFirebase = $firebaseArray(new Firebase(dburl + "/cvs"));
+		var rawDate = new Date;
+
+		this.addCv = function(cvDataModel){
+			var date = rawDate.toLocaleDateString();
+			cvDataModel.date = date;
+			
+			console.log("addCv service", cvDataModel);
+		};
+
 	}]);

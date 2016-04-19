@@ -22,10 +22,10 @@ angular
 	        }
 	    });
    		
-   		$stateProvider.state('cvadd', {
-	        url: '/cvadd',
-	        controller: 'CvaddCtrl as cvaddCtrl',
-	        templateUrl: 'app/components/cvadd/cvadd.tpl.html',
+   		$stateProvider.state('newcv', {
+	        url: '/newcv',
+	        controller: 'NewcvCtrl as newcvCtrl',
+	        templateUrl: 'app/components/newcv/newcv.tpl.html',
 	    });
    		
    		$urlRouterProvider.otherwise('');

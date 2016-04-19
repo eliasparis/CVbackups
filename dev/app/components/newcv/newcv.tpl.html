@@ -1,0 +1,29 @@
+<h2>{{hello}}</h2>
+
+<form novalidate name="newcvCtrl.form" ng-submit="newcvCtrl.form.$valid && newcvCtrl.onSubmit()">
+	Title : <input type="text" name="cv.title" ng-model="newcvCtrl.cv.title" required><br>
+	Personal data / name : <input type="text" name="cv.data.name" ng-model="newcvCtrl.cv.data.name" required><br>
+	Personal data / surname : <input type="text" name="cv.data.surname" ng-model="newcvCtrl.cv.data.surname"><br>
+	Phone : <input type="" name="" ng-model="newcvCtrl.cv.data.phone"><br>
+	Email: <input type="text" name="" ng-model="newcvCtrl.cv.data.email"><br>
+	Descript : <input type="text" name="cv.data.intro" ng-model="newcvCtrl.cv.data.intro" ng-maxlength="140"><br>
+	Ocupation : <input type="text" name="" ng-model="newcvCtrl.cv.data.ocupation"><br>
+	<br>
+
+	<ng-messages for="newcvCtrl.form.cv.data.name.$error">
+	    <ng-messages when="required">
+			:(
+		</ng-message> 
+    </ng-messages> 
+
+<!-- 	<ng-messages when="required">
+		Tas pasao de largo :(
+	</ng-messages> --> 
+
+
+
+	<button type="submit" ng-disabled="newcvCtrl.form.$invalid" ng-click="newcvCtrl.saveCV(newcvCtrl.cv)">SAVE</button>
+</form>
+
+
+<a ui-sref="app">Home</a>
