@@ -3,9 +3,14 @@ angular
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	   	
 	   	$stateProvider.state('app', {
-	        url: '',
+	        url: '/',
 	        controller: 'ListCtrl as listCtrl',
 	        templateUrl: 'app/components/listing/listing.tpl.html',
+	        resolve: {
+	        	cvs: ['cvdata', '$stateParams', function(cvdata, $stateParams){
+	        		return cvdata.getCv($stateParams.cvtitle);
+	        	}],
+	        }
 	    });
 	   	
 	   	$stateProvider.state('cvview', {
@@ -28,6 +33,6 @@ angular
 	        templateUrl: 'app/components/newcv/newcv.tpl.html',
 	    });
    		
-   		$urlRouterProvider.otherwise('');
+   		$urlRouterProvider.otherwise('/');
 
    	}]);

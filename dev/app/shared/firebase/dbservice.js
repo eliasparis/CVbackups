@@ -11,12 +11,19 @@ angular
 			.$loaded()
 			.then(function(data){
 				
-				data.forEach(function(cv){
-					layoutdata.push(
-						{
-							"title" : cv.$id,
-							"date" : cv.date
-						});
+				data
+					.sort(function(a, b){
+						var a = new Date(a.timestamp);
+						var b = new Date(b.timestamp);
+						return a>b ? -1 : a<b ? 1 : 0 ;
+					})
+					.forEach(function(cv){
+						layoutdata.push(
+							{
+								"title" : cv.title,
+								"date" : cv.date, 
+								"id": cv.$id,
+							});
 				})
 
 			})
@@ -39,10 +46,10 @@ angular
 		}
 
 	}])
-	.service('newcv',['dburl', '$firebaseArray', function(dburl, $firebaseArray){
+	.service('newcv',['dburl', '$firebaseArray', '$state', function(dburl, $firebaseArray, $state){
 		
 		var dburl = dburl.url;
-		var cvsFirebase = $firebaseArray(new Firebase(dburl + "/cvs"));
+		var cvsFirebase = new Firebase(dburl + "/cvs");
 		
 		this.addCv = function(cvDataModel){
 			
@@ -50,10 +57,40 @@ angular
 			var date = rawDate.toLocaleDateString();
 			var title = cvDataModel.title;
 			var timestamp = rawDate.toString();
+			
+			//Callback when CV is saved
+			var completed = function(error){
+				if (error){
+					console.log('Error happened');
+				}else{
+					$state.go('cvview', {
+						cvtitle: cvDataModel.title,
+					});
+				};
+			};
 
-			cvsFirebase.$add({ title, cvDataModel, date, timestamp });
+			cvsFirebase
+				.child(title)
+				.set({ title, cvDataModel, date, timestamp }, completed);
+		};
 
-			console.log("addCv service", cvDataModel);
+	}])
+	.service('removecv',['dburl', '$firebaseObject', '$state', function(dburl, $firebaseObject, $state){
+		
+		var dburl = dburl.url;
+
+		this.removeCv = function(cv){
+			
+			var cvFirebaseToRemove = $firebaseObject(new Firebase(dburl + /cvs/ + cv));
+			
+			cvFirebaseToRemove
+				.$remove()
+				.then(function(){
+					$state.go('app');
+				})
+				.catch(function(error){
+					console.log(error);
+				});
 		};
 
 	}]);
