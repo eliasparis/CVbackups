@@ -1,19 +1,10 @@
 angular
 	.module('app.list',['ui.router', 'dbservice'])
-	.controller('ListCtrl',['$scope', '$state', 'cvs', function($scope, $state, cvs) {
+	.controller('ListCtrl',['$scope', '$state', 'cvlist', function($scope, $state, cvlist) {
 
-		var layoutdata = [];
-
-		cvs
-			.reverse()
-			.forEach(function(data){
-				layoutdata.push({
-					title: data.title,
-					date: data.date
-				});
-			});
-
-	  	$scope.cvs = layoutdata;
+	  	cvlist.getCvs().then(function(data){
+	  		$scope.cvs = data.reverse();
+	  	})
 
 		this.cvview = function(cv){
 			$state.go('cvview', {

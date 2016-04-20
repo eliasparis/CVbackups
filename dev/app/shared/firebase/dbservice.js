@@ -9,6 +9,7 @@ angular
 			var cvsdata = $firebaseArray(cvsFirebase.orderByChild('timestamp'));
 
 			return cvsdata.$loaded();
+
 		};
 
 	}])

@@ -6,11 +6,6 @@ angular
 	        url: '/',
 	        controller: 'ListCtrl as listCtrl',
 	        templateUrl: 'app/components/listing/listing.tpl.html',
-	        resolve: {
-	        	cvs: ['cvlist', '$stateParams', function(cvlist, $stateParams){
-	        		return cvlist.getCvs();
-	        	}],
-	        }
 	    });
 	   	
 	   	$stateProvider.state('cvview', {
