@@ -1,38 +1,14 @@
 angular
 	.module('dbservice',['dbconstant', 'firebase', 'ui.router'])
 	.service('cvlist', ['dburl', '$firebaseArray', function(dburl, $firebaseArray){
-		
+
 		var dburl = dburl.url;		
-		var cvsFirebase = new Firebase(dburl + "/cvs");
-		var cvsdata = $firebaseArray(cvsFirebase)
-		var layoutdata = [];
+		this.getCvs = function(){
+			
+			var cvsFirebase = new Firebase(dburl + "/cvs");
+			var cvsdata = $firebaseArray(cvsFirebase.orderByChild('timestamp'));
 
-		cvsdata
-			.$loaded()
-			.then(function(data){
-				
-				data
-					.sort(function(a, b){
-						var a = new Date(a.timestamp);
-						var b = new Date(b.timestamp);
-						return a>b ? -1 : a<b ? 1 : 0 ;
-					})
-					.forEach(function(cv){
-						layoutdata.push(
-							{
-								"title" : cv.title,
-								"date" : cv.date, 
-								"id": cv.$id,
-							});
-				})
-
-			})
-			.catch(function(error){
-				console.log(error);
-			});
-
-		return {
-			cvlisting: layoutdata,
+			return cvsdata.$loaded();
 		};
 
 	}])

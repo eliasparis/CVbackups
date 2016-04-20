@@ -7,8 +7,8 @@ angular
 	        controller: 'ListCtrl as listCtrl',
 	        templateUrl: 'app/components/listing/listing.tpl.html',
 	        resolve: {
-	        	cvs: ['cvdata', '$stateParams', function(cvdata, $stateParams){
-	        		return cvdata.getCv($stateParams.cvtitle);
+	        	cvs: ['cvlist', '$stateParams', function(cvlist, $stateParams){
+	        		return cvlist.getCvs();
 	        	}],
 	        }
 	    });
